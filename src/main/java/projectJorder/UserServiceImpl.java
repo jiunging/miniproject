@@ -2,6 +2,7 @@ package projectJorder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UserServiceImpl implements UserService{
 	
@@ -32,12 +33,23 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public USERVO login(HttpServletRequest request, HttpServletResponse response) {
 		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		USERVO vo = dao.login(id, pw);
 		
 		
+		return vo;
+	}
+
+	@Override
+	public USERVO getUserInfo(HttpServletRequest request, HttpServletResponse response) {
 		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("user_id");
 		
-		
-		return null;
+		USERVO vo = dao.getUserInfo(id);
+		return vo;
 	}
 	
 	

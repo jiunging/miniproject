@@ -8,5 +8,7 @@ public interface UserService {
 	public int join(HttpServletRequest request, HttpServletResponse response);
 	
 	public USERVO login(HttpServletRequest request, HttpServletResponse response);
+	
+	public USERVO getUserInfo(HttpServletRequest request, HttpServletResponse response);
 
 }

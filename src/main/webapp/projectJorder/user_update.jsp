@@ -17,7 +17,7 @@
 				<tr>
 					<td>아이디<td>
 					<td>
-						<input type="text" name="id">
+						<input type="text" name="id" value="${vo.getId() }" >
 					</td>
 				</tr>
 				

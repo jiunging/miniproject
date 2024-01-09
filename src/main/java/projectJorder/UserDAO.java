@@ -84,16 +84,30 @@ public class UserDAO {
 		
 	}
 	
-	public void login(String id, String pw) {
+	public USERVO login(String id, String pw) {
 		
 		USERVO vo = null;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from users where id = ? and pw = ?";
+		String sql = "select * from members where id = ? and pw = ?";
 		
 		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { // 있으면 데이터가 있다는 뜻, 로그인 가능
+				vo = new USERVO();
+				vo.setId(id);
+				vo.setName(rs.getString("name"));
+			}
+			
+			
 			
 		} catch (Exception e) {
 			
@@ -101,7 +115,44 @@ public class UserDAO {
 			JdbcUtil.close(conn, pstmt, rs);
 		}
 		
+		return vo;
+	}
+	
+	public USERVO getUserInfo(String id) {
 		
+		USERVO vo = null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from members where id = ?";
+		
+		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				
+				vo = new USERVO(id, pw, name, email);
+				
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		
+		
+		return vo;
 		
 	}
 	
