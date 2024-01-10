@@ -15,7 +15,7 @@
 			비밀번호: <input type="password" name="pw">
 			<input type="submit" value="확인">
 		</form>
-	
+		${msg }
 	
 	
 	

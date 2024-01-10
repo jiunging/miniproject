@@ -16,8 +16,8 @@
 		${sessionScope.user_id }(${sessionScope.user_name })님의 정보를 관리합니다.
 		</p>
 		
-		<a href="user_update.jsp">[회원 정보 변경]</a>
-		<a href="user_delete.jsp">[회원 탈퇴]</a>
+		<a href="user_update.user" >[회원 정보 변경]</a>
+		<a href="user_delete.user">[회원 탈퇴]</a>
 	
 	
 	

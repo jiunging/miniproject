@@ -17,7 +17,7 @@
 				<tr>
 					<td>아이디<td>
 					<td>
-						<input type="text" name="id" value="${vo.getId() }" >
+						<input type="text" name="id" value="${vo.getId() }" readonly>
 					</td>
 				</tr>
 				
@@ -38,31 +38,28 @@
 				<tr>
 					<td>이름<td>
 					<td>
-						<input type="text" name="name">
+						<input type="text" name="name" value="${vo.getName() }">
 					</td>
 				</tr>
 				
 				<tr>
 					<td>이메일<td>
 					<td>
-						<input type="email" name="email">
+						<input type="email" name="email" value="${vo.getEmail()}">
 					</td>
 				</tr>
 				
 			
 			</table>
 			
-		
 		<br>
 		<input type="submit" value="수정" class="btn btn-default" onclick="">&nbsp;&nbsp;
 		<input type="reset" value="취소" class="btn btn-default" onclick="">
-
 		
 		</form>
-
+		
 	</div>
-
-
-
+	
+	
 </body>
 </html>

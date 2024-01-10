@@ -17,7 +17,7 @@
 				<tr>
 					<td>아이디</td>
 					<td>
-						<input type="text" name="id" required pattern="[A-Za-z0-9]{5,}">
+						<input type="text" name="id" required>
 					</td>
 				</tr>
 				<br>
@@ -25,7 +25,7 @@
 				<tr>
 					<td>비밀번호</td>
 					<td>
-						<input type="text" name="pw" required pattern="[A-Za-z0-9]{5,}">
+						<input type="text" name="pw" required>
 					</td>
 				</tr>
 				
